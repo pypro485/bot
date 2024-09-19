@@ -5,8 +5,9 @@ from lumibot.backtesting import YahooDataBacktesting
 from lumibot.strategies.strategy import Strategy
 from datetime import datetime
 from alpaca_trade_api import REST
+
 from timedelta import Timedelta
-from bot.finbert_utils import estimate_sentiment
+from finbert_utils import estimate_sentiment
 from stocks import stocks
 from lumibot.traders import Trader
 
@@ -117,7 +118,7 @@ end_date = datetime(2023,12,31)
 broker = Alpaca(ALPACA_CREDS) 
 strategy = MLTrader(name='mlstrat', broker=broker, 
                     parameters={"symbol":"SPY", 
-                                "cash_at_risk":.5}, should_send_summary_to_discord=True, discord_webhook_url='https://discord.com/api/webhooks/1284306717580070933/BBc5joYaRco4TJwVpoh8cwLtLQjRxVdQM8-ENlxA2etJryCNQqGIvHecj5nJkgypQ0pc')
+                                "cash_at_risk":.5}, should_send_summary_to_discord=True, discord_webhook_url='https://discord.com/api/webhooks/1284306717580070933/BBc5joYaRco4TJwVpoh8cwLtLQjRxVdQM8-ENlxA2etJryCNQqGIvHecj5nJkgypQ0pc', db_connection_str='sqlite:///C:/Users/somen/dbNAME.db')
 # strategy.backtest(
 #     YahooDataBacktesting, 
 #     start_date, 
